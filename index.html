@@ -11,6 +11,7 @@
     <div class="page-container max-w-md w-full p-6 bg-white shadow-md rounded-lg">
         <header class="text-center mb-6">
             <h1 class="text-2xl font-bold">Calculadora de Caixa</h1>
+            <p class="text-gray-600">Versão 1.0</p>
         </header>
         <main id="calculator" class="space-y-4">
             <!-- Section 1 -->
@@ -30,29 +31,4 @@
                 <label for="despesa" class="block text-gray-700">Despesa:</label>
                 <input id="despesa" type="text" placeholder="Digite a despesa" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
                 <label for="fatura-assinada" class="block text-gray-700">Fatura Assinada:</label>
-                <input id="fatura-assinada" type="text" placeholder="Digite a fatura assinada" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
-                <label for="voucher" class="block text-gray-700">Voucher:</label>
-                <input id="voucher" type="text" placeholder="Digite o voucher" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
-            </div>
-            <hr class="my-4">
-            <!-- Section 3 -->
-            <div id="section-resultados" class="section space-y-2">
-                <label for="subtotal" class="block text-gray-700">Subtotal:</label>
-                <input id="subtotal" type="text" placeholder="Digite o subtotal" class="w-full p-2 border rounded-md" readonly>
-                <label for="troco-inicial" class="block text-gray-700">Troco Inicial:</label>
-                <input id="troco-inicial" type="text" placeholder="Digite o troco inicial" class="w-full p-2 border rounded-md">
-                <label for="percentage" class="block text-gray-700">20%:</label>
-                <input id="percentage" type="text" placeholder="Digite os 20%" class="w-full p-2 border rounded-md">
-            </div>
-            <hr class="my-4">
-            <!-- Section 4 -->
-            <div id="section-total" class="section space-y-2">
-                <label for="total" class="block text-gray-700">Total:</label>
-                <input id="total" type="text" placeholder="Digite o total" class="w-full p-2 border rounded-md">
-                <div id="difference-message" class="text-sm mt-1 hidden" aria-live="assertive"></div>
-            </div>
-        </main>
-    </div>
-    <script src="script.js" defer></script>
-</body>
-</html>
+                <input id="fatura-assinada" type="
