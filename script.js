@@ -1,13 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const fields = ['venda', 'troco-final', 'cartao', 'entrega', 'despesa', 'fatura-assinada', 'voucher', 'troco-inicial', 'percentage', 'total'];
     const vendaInput = document.getElementById('venda');
-    const subtotalSpan = document.getElementById('subtotal');
+    const subtotalInput = document.getElementById('subtotal');
     const totalInput = document.getElementById('total');
     const differenceMessage = document.getElementById('difference-message');
-    const vendaError = document.getElementById('venda-input-error');
-
-    const detailsFields = ['troco-final', 'cartao', 'entrega', 'despesa', 'fatura-assinada', 'voucher'];
-
-    detailsFields.forEach(field => {
+    
+    fields.forEach(field => {
         const input = document.getElementById(field);
         input.addEventListener('input', formatBRL);
         input.addEventListener('change', calculateTotals);
@@ -33,21 +31,15 @@ document.addEventListener('DOMContentLoaded', function() {
         let venda = parseBRL(vendaInput.value);
         let subtotal = 0;
 
-        detailsFields.forEach(field => {
+        fields.slice(1, 7).forEach(field => { // Sum only the second section fields for the subtotal
             const input = document.getElementById(field);
             subtotal += parseBRL(input.value);
         });
 
-        subtotalSpan.innerText = subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        subtotalInput.value = subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-        // Maintain the current functionality for other fields
-        const trocoInicial = subtotal * 0.10;
-        const percentage = subtotal * 0.20;
-        let total = subtotal;
-
-        document.getElementById('troco-inicial').value = trocoInicial.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-        document.getElementById('percentage').value = percentage.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-        totalInput.value = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        // Calculate the total
+        let total = parseBRL(document.getElementById('total').value);
 
         if (total < venda) {
             differenceMessage.innerText = `Diferença negativa: ${(venda - total).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
