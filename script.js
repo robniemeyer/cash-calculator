@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Show the difference message with appropriate color and sign
         let difference = total - venda;
-        differenceMessage.innerText = `Diferença: ${difference < 0 ? '-' : ''}${Math.abs(difference).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+        differenceMessage.innerText = `Diferença: R$ ${difference < 0 ? '-' : ''}${Math.abs(difference).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         if (difference < 0) {
             differenceMessage.classList.remove('text-green-500');
             differenceMessage.classList.add('text-red-500');
