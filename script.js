@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const fields = ['troco-final', 'cartao', 'entrega', 'despesa', 'fatura-assinada', 'voucher'];
     const vendaInput = document.getElementById('venda');
     const subtotalSpan = document.getElementById('subtotal');
     const totalInput = document.getElementById('total');
     const differenceMessage = document.getElementById('difference-message');
-    const grossProfitError = document.getElementById('venda-input-error');
-    
-    fields.forEach(field => {
+    const vendaError = document.getElementById('venda-input-error');
+
+    const detailsFields = ['troco-final', 'cartao', 'entrega', 'despesa', 'fatura-assinada', 'voucher'];
+
+    detailsFields.forEach(field => {
         const input = document.getElementById(field);
         input.addEventListener('input', formatBRL);
         input.addEventListener('change', calculateTotals);
@@ -32,22 +33,28 @@ document.addEventListener('DOMContentLoaded', function() {
         let venda = parseBRL(vendaInput.value);
         let subtotal = 0;
 
-        fields.forEach(field => {
+        detailsFields.forEach(field => {
             const input = document.getElementById(field);
             subtotal += parseBRL(input.value);
         });
 
         subtotalSpan.innerText = subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-        let total = subtotal * 0.90;
+        // Maintain the current functionality for other fields
+        const trocoInicial = subtotal * 0.10;
+        const percentage = subtotal * 0.20;
+        let total = subtotal;
+
+        document.getElementById('troco-inicial').value = trocoInicial.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        document.getElementById('percentage').value = percentage.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         totalInput.value = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
         if (total < venda) {
-            grossProfitError.innerText = `Diferença negativa: ${(venda - total).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
-            grossProfitError.classList.remove('hidden');
+            differenceMessage.innerText = `Diferença negativa: ${(venda - total).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+            differenceMessage.classList.remove('hidden');
         } else {
-            grossProfitError.innerText = `Diferença positiva: ${(total - venda).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
-            grossProfitError.classList.remove('hidden');
+            differenceMessage.innerText = `Diferença positiva: ${(total - venda).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
+            differenceMessage.classList.remove('hidden');
         }
     }
 
