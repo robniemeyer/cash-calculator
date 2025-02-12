@@ -14,11 +14,6 @@ body {
     color: #38a169; /* Green for success */
 }
 
-.btn-clear {
-    background-color: #e3342f;
-    color: white;
-}
-
 /* Hide message initially */
 .hidden {
     display: none;
