@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const fields = ['venda', 'troco-final', 'cartao', 'entrega', 'despesa', 'fatura-assinada', 'voucher'];
+    const fields = ['troco-final', 'cartao', 'entrega', 'despesa', 'fatura-assinada', 'voucher'];
     const vendaInput = document.getElementById('venda');
+    const subtotalSpan = document.getElementById('subtotal');
     const totalInput = document.getElementById('total');
     const differenceMessage = document.getElementById('difference-message');
     const grossProfitError = document.getElementById('venda-input-error');
@@ -29,23 +30,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function calculateTotals() {
         let venda = parseBRL(vendaInput.value);
-        let total = 0;
+        let subtotal = 0;
 
         fields.forEach(field => {
             const input = document.getElementById(field);
-            total += parseBRL(input.value);
+            subtotal += parseBRL(input.value);
         });
 
-        const subtotal = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-        document.getElementById('subtotal').value = subtotal;
+        subtotalSpan.innerText = subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-        const percentage = (total * 0.20).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-        document.getElementById('percentage').value = percentage;
-
-        const trocoInicial = (total * 0.10).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-        document.getElementById('troco-inicial').value = trocoInicial;
-
-        total = total * 0.90;
+        let total = subtotal * 0.90;
         totalInput.value = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
         if (total < venda) {
