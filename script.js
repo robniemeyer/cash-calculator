@@ -50,13 +50,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         totalSpan.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-        // Show the difference message
+        // Show the difference message with appropriate color
         if (total < venda) {
             differenceMessage.innerText = `Diferença negativa: ${(venda - total).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
-            differenceMessage.classList.remove('hidden');
+            differenceMessage.classList.remove('text-green-500');
+            differenceMessage.classList.add('text-red-500');
         } else {
             differenceMessage.innerText = `Diferença positiva: ${(total - venda).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
-            differenceMessage.classList.remove('hidden');
+            differenceMessage.classList.remove('text-red-500');
+            differenceMessage.classList.add('text-green-500');
         }
     }
 
