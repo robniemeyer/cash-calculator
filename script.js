@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const fields = ['venda', 'troco-final', 'cartao', 'entrega', 'despesa', 'fatura-assinada', 'voucher', 'troco-inicial', 'percentage', 'total'];
+    const fields = ['venda', 'troco-final', 'cartao', 'entrega', 'despesa', 'fatura-assinada', 'voucher', 'troco-inicial', 'percentage'];
     const vendaInput = document.getElementById('venda');
     const subtotalSpan = document.getElementById('subtotal');
-    const totalInput = document.getElementById('total');
+    const totalSpan = document.getElementById('total');
     const differenceMessage = document.getElementById('difference-message');
-    const vendaError = document.getElementById('venda-input-error');
 
     fields.forEach(field => {
         const input = document.getElementById(field);
@@ -49,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             total -= parseBRL(input.value);
         });
 
-        totalInput.value = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        totalSpan.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
         // Show the difference message
         if (total < venda) {
