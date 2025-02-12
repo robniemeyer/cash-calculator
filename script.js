@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const fields = ['venda', 'troco-final', 'cartao', 'entrega', 'despesa', 'fatura-assinada', 'voucher', 'troco-inicial', 'percentage'];
+    const fields = ['venda', 'troco-final', 'cartao', 'delivery', 'despesa', 'fatura-assinada', 'voucher', 'troco-inicial', 'percentage'];
     const vendaInput = document.getElementById('venda');
     const subtotalSpan = document.getElementById('subtotal');
     const totalSpan = document.getElementById('total');
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let subtotal = 0;
 
         // Sum only the fields in the second section for the subtotal
-        const detailsFields = ['troco-final', 'cartao', 'entrega', 'despesa', 'fatura-assinada', 'voucher'];
+        const detailsFields = ['troco-final', 'cartao', 'delivery', 'despesa', 'fatura-assinada', 'voucher'];
         detailsFields.forEach(field => {
             const input = document.getElementById(field);
             subtotal += parseBRL(input.value);
