@@ -66,4 +66,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!value) return 0;
         return parseFloat(value.replace(/[R$ \.]/g, '').replace(',', '.')) || 0;
     }
+
+    // Function to clear inputs in a section
+    window.clearInputs = function(sectionId) {
+        const section = document.getElementById(sectionId);
+        const inputs = section.getElementsByTagName('input');
+        for (let input of inputs) {
+            input.value = '';
+        }
+        calculateTotals();
+    };
 });
