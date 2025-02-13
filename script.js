@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const fields = ['venda', 'troco-final', 'cartao', 'delivery', 'despesa', 'fatura-assinada', 'voucher', 'troco-inicial', 'percentage'];
-    const vendaInput = document.getElementById('venda');
+    const fields = ['sales', 'final-change', 'card', 'delivery', 'expense', 'signed-bill', 'voucher', 'initial-change', 'percentage'];
+    const salesInput = document.getElementById('sales');
     const subtotalSpan = document.getElementById('subtotal');
     const totalSpan = document.getElementById('total');
     const differenceMessage = document.getElementById('difference-message');
@@ -28,11 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function calculateTotals() {
-        let venda = parseBRL(vendaInput.value);
+        let sales = parseBRL(salesInput.value);
         let subtotal = 0;
 
         // Sum only the fields in the second section for the subtotal
-        const detailsFields = ['troco-final', 'cartao', 'delivery', 'despesa', 'fatura-assinada', 'voucher'];
+        const detailsFields = ['final-change', 'card', 'delivery', 'expense', 'signed-bill', 'voucher'];
         detailsFields.forEach(field => {
             const input = document.getElementById(field);
             subtotal += parseBRL(input.value);
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         subtotalSpan.innerText = subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
         // Subtract the values of the other fields in the third section from the subtotal to calculate the total
-        const resultsFields = ['troco-inicial', 'percentage'];
+        const resultsFields = ['initial-change', 'percentage'];
         let total = subtotal;
         resultsFields.forEach(field => {
             const input = document.getElementById(field);
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         totalSpan.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
         // Show the difference message with appropriate color and sign
-        let difference = total - venda;
+        let difference = total - sales;
         differenceMessage.innerText = `Diferença: R$ ${difference < 0 ? '-' : ''}${Math.abs(difference).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         if (difference < 0) {
             differenceMessage.classList.remove('text-green-500');
