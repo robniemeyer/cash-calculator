@@ -15,27 +15,27 @@
         </header>
         <main id="calculator" class="space-y-4">
             <!-- Section 1 -->
-            <div id="section-venda" class="section space-y-2">
-                <label for="venda" class="block text-gray-700">Venda:</label>
-                <input id="venda" type="text" placeholder="Digite a venda" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
-                <button type="button" class="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" onclick="clearInputs('section-venda')">Limpar</button>
+            <div id="section-sales" class="section space-y-2">
+                <label for="sales" class="block text-gray-700">Venda:</label>
+                <input id="sales" type="text" placeholder="Digite a venda" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
+                <button type="button" class="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" onclick="clearInputs('section-sales')">Limpar</button>
             </div>
             <hr class="my-4">
             <!-- Section 2 -->
-            <div id="section-detalhes" class="section space-y-2">
-                <label for="troco-final" class="block text-gray-700">Troco Final:</label>
-                <input id="troco-final" type="text" placeholder="Digite o troco final" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
-                <label for="cartao" class="block text-gray-700">Cartão:</label>
-                <input id="cartao" type="text" placeholder="Digite o cartão" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
+            <div id="section-details" class="section space-y-2">
+                <label for="final-change" class="block text-gray-700">Troco Final:</label>
+                <input id="final-change" type="text" placeholder="Digite o troco final" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
+                <label for="card" class="block text-gray-700">Cartão:</label>
+                <input id="card" type="text" placeholder="Digite o cartão" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
                 <label for="delivery" class="block text-gray-700">Delivery:</label>
                 <input id="delivery" type="text" placeholder="Digite o delivery" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
-                <label for="despesa" class="block text-gray-700">Despesa:</label>
-                <input id="despesa" type="text" placeholder="Digite a despesa" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
-                <label for="fatura-assinada" class="block text-gray-700">Fatura Assinada:</label>
-                <input id="fatura-assinada" type="text" placeholder="Digite a fatura assinada" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
+                <label for="expense" class="block text-gray-700">Despesa:</label>
+                <input id="expense" type="text" placeholder="Digite a despesa" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
+                <label for="signed-bill" class="block text-gray-700">Fatura Assinada:</label>
+                <input id="signed-bill" type="text" placeholder="Digite a fatura assinada" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
                 <label for="voucher" class="block text-gray-700">Voucher:</label>
                 <input id="voucher" type="text" placeholder="Digite o voucher" onkeyup="formatBRL(this)" class="w-full p-2 border rounded-md">
-                <button type="button" class="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" onclick="clearInputs('section-detalhes')">Limpar</button>
+                <button type="button" class="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" onclick="clearInputs('section-details')">Limpar</button>
             </div>
             <hr class="my-2"> <!-- Reduced space -->
             <!-- Section 3 -->
@@ -45,12 +45,12 @@
             </div>
             <hr class="my-4">
             <!-- Section 4 -->
-            <div id="section-resultados" class="section space-y-2">
-                <label for="troco-inicial" class="block text-gray-700">Troco Inicial:</label>
-                <input id="troco-inicial" type="text" placeholder="Digite o troco inicial" class="w-full p-2 border rounded-md">
+            <div id="section-results" class="section space-y-2">
+                <label for="initial-change" class="block text-gray-700">Troco Inicial:</label>
+                <input id="initial-change" type="text" placeholder="Digite o troco inicial" class="w-full p-2 border rounded-md">
                 <label for="percentage" class="block text-gray-700">20%:</label>
                 <input id="percentage" type="text" placeholder="Digite os 20%" class="w-full p-2 border rounded-md">
-                <button type="button" class="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" onclick="clearInputs('section-resultados')">Limpar</button>
+                <button type="button" class="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" onclick="clearInputs('section-results')">Limpar</button>
             </div>
             <hr class="my-4">
             <!-- Section 5 -->
